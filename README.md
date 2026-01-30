@@ -7,7 +7,10 @@
 ## Example Embroidery Directory Structure
 
 ### Embroidery Directory Root Directory 
-  1. Must contain folder descriptive names that will form the 'Catalog' structure.
+  1. The Embroidery root folder must contain folder descriptive names that will form the 'Catalog' structure as shown below.  Each folder will contain sub-folders of Husqvarna embroidery stitch files in the format of:
+    - \*.vp3 
+    - \*.vip with associated \*.jpg image files
+    - other files (e.g., \*.pdf, *.txt, etc) will be ignored
 
 ```
 	Embroidery Thumbnails/
@@ -34,9 +37,9 @@
 
 ```  
   
-### Subfolders 
-  1. Contains folders and subfolders of '\*.VP3' stitch files. These will be used to make '*.png' image files.  The application will attempt to remove hoop size suffixes to reduce the number of image files.
-  2. If the subfolder contains '\*.vip' files, this application will search for '\*.jpg' files to view in the HTML file.  
+### Sub-folders 
+  1. Sub-folders will contain the stitch files and associated jpg files. These stitch files will be used to create '*.png' image files in the 'images' folder.  The application will attempt to remove the file suffixes for the hoop size to reduce the number of image files.
+  2. If the subfolder contains '\*.vip' files, this application will search for '\*.jpg' files in the same folder to view them in the HTML file.  
 
 ```
 	Embroidery Thumbnails/
@@ -83,15 +86,15 @@
 
 ```
 
-### Configuration
+### Application Configuration
 
-The Python file has a section to define the following constants:
+The Python file has a beginning section for the users to define the following required constants:
 
 ```
 # Start of User Defined Constants
-MAX_FILES                   = 100   # Limit converted VP3 stitch files to PNG images
+MAX_FILES                   = 100   # Limit the number of stitch files to process
 TABLE_COLS                  = 6     # Columns in HTML file
-DEBUG                       = False # Trouble Shooting
+DEBUG                       = False # Verbose Output Troubleshooting
 faviconURI                  = "https://raw.githubusercontent.com/KurtSanders/Embroidery/f4e6494c4c0d63105bc81259bb854d22aaa46ef9/images/K+N_favicon.svg"
 root_embroidery_directory   = os.path.join(Path.home(), 'Documents/Embroidery Thumbnails')
 catalog_directory           = os.path.join(root_embroidery_directory, 'Catalog')
@@ -103,3 +106,6 @@ excluded_folders            = ['Alphabets & Monograms']
 # End of User Defined Constants
 
 ```
+### Installation
+
+TBD
