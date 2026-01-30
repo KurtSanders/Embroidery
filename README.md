@@ -1,4 +1,4 @@
-# Embroidery Stitch File HTML Viewer
+# Embroidery Stitch File Catalog
 
 
 ### Viewer Screenshot
