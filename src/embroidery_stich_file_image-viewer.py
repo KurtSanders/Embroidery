@@ -1,36 +1,38 @@
-import os
-import os.path
-import shutil
-import pyembroidery
-import fnmatch
+#!/usr/bin/env python3
+
+from colorama import Fore, Back, Style, init
 from osxmetadata import *
 from pathlib import Path
-import webbrowser
-from colorama import Fore, Back, Style, init
-from tqdm import tqdm
-import send2trash
 from send2trash import send2trash
-import requests
-import re
+from tqdm import tqdm
+import fnmatch
 import json
-from dotenv import load_dotenv
+import os
+import os.path
+import pyembroidery
+import re
+import requests
+import send2trash
+import shutil
+import webbrowser
 
-# Constant Defaults
-MAX_FILES               = 100
-TABLE_COLS              = 6
-DEBUG                   = False
-#DEBUG                   = True
-faviconURI              = "https://raw.githubusercontent.com/KurtSanders/HubitatPackages/ae72c0425428748de9c4b733283ba42b8d28bf3f/resources/images/K+N_favicon.svg"
-
-# Constants for the embroidery files
+# Start of User Defined Constants
+MAX_FILES                   = 100   # Limit converted VP3 stitch files to PNG images
+TABLE_COLS                  = 6     # Columns in HTML file
+DEBUG                       = False # Trouble Shooting
+faviconURI                  = "https://raw.githubusercontent.com/KurtSanders/Embroidery/f4e6494c4c0d63105bc81259bb854d22aaa46ef9/images/K+N_favicon.svg"
 root_embroidery_directory   = os.path.join(Path.home(), 'Documents/Embroidery Thumbnails')
 catalog_directory           = os.path.join(root_embroidery_directory, 'Catalog')
 html_filename               = os.path.join(catalog_directory, 'Embroidery_image_table.html')
 images_folder               = os.path.join(catalog_directory, 'images')
 favicon_filename            = os.path.join(images_folder, "K+N_favicon.svg")
 downloads_folder            = Path.home() / 'Downloads'
-excluded_folders            = ['Catalog', 'images', 'Alphabets & Monograms']
-VXX_dictionary              = {}
+excluded_folders            = ['Alphabets & Monograms']
+# End of User Defined Constants
+
+# Add application folders to exclude list
+excluded_folders.extend(['images','Catalog'])
+# Dictionery of defined folders
 embroideryFoldersDict = {
     "embroidery_thumbnails_directory"    : {
         "location"  : root_embroidery_directory
@@ -51,6 +53,7 @@ embroideryFoldersDict = {
     }
 }
 
+VXX_dictionary              = {}
 fPattern_VXX        = "*.v[ip][3p]"
 fPattern_VP3        = "*.vp3"
 fPattern_VIP        = "*.vip"
