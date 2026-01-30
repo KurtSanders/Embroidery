@@ -85,7 +85,7 @@
 
 ### Configuration
 
-The Python file has a section to define the following constants
+The Python file has a section to define the following constants:
 
 ```
 # Start of User Defined Constants
@@ -100,4 +100,6 @@ images_folder               = os.path.join(catalog_directory, 'images')
 favicon_filename            = os.path.join(images_folder, "K+N_favicon.svg")
 downloads_folder            = Path.home() / 'Downloads'
 excluded_folders            = ['Alphabets & Monograms']
-# End of User Defined Constants```
+# End of User Defined Constants
+
+```
